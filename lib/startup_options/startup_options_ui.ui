@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>StartupModeWindow</class>
+ <widget class="QMainWindow" name="StartupModeWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>640</width>
+    <height>140</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>选择模式</string>
+  </property>
+  <property name="iconSize">
+   <size>
+    <width>14</width>
+    <height>14</height>
+   </size>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="flash_mode_btn">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>320</width>
+      <height>140</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>Flash_Logo.png</normaloff>Flash_Logo.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>320</width>
+      <height>320</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="h5_mode_btn">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>0</y>
+      <width>320</width>
+      <height>140</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>H5_Logo.png</normaloff>H5_Logo.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>320</width>
+      <height>320</height>
+     </size>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
