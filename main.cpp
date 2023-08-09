@@ -1,10 +1,10 @@
-#include "startup_options.h"
 #include <QApplication>
+#include "startup_options.h"
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
-    startup_options startup_options_t;
-    startup_options_t.show();
-    return a.exec();
+    QApplication app(argc, argv);
+    StartupOptions startup_options;
+    startup_options.show();
+    return app.exec();
 }

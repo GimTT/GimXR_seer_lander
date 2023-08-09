@@ -1,5 +1,5 @@
+#include <QDebug>
 #include "h5_main_window.h"
-#include <stdio.h>
 #include "../../audio_mute/mediamute.h"
 
 #if TEST_MODE
@@ -8,7 +8,7 @@
     #define H5_MODE_URL ("http://seerh5.61.com/")
 #endif
 
-h5_main_window::h5_main_window(QWidget *parent)
+H5MainWindow::H5MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::H5LanderMainWindow)
 {
@@ -22,13 +22,13 @@ h5_main_window::h5_main_window(QWidget *parent)
     connect(ui -> refresh_btn, SIGNAL(clicked()), this, SLOT(game_refresh()));
 }
 
-h5_main_window::~h5_main_window()
+H5MainWindow::~H5MainWindow()
 {
 
 }
 
 
-void h5_main_window::audio_mute()
+void H5MainWindow::audio_mute()
 {
     MediaMute Cmute;
     bool audio_status = ui -> audio_mute_checkBox -> isChecked();
@@ -42,7 +42,8 @@ void h5_main_window::audio_mute()
     }
 }
 
-void h5_main_window::game_refresh()
+void H5MainWindow::game_refresh()
 {
     m_view -> reload();
+    qDebug() << ("[H5_MAIN_WIN]ReLoad!");
 }
