@@ -19,6 +19,10 @@ typedef HMODULE speed_ctrl_handle_t;
 }
 #endif
 
+#define SPEED_CTRLLER_WINDOW_RESET_POS_X    0.5     //变速窗口初始化位置x（相对）
+#define SPEED_CTRLLER_WINDOW_RESET_POS_Y    0.8     //变速窗口初始化位置y（相对）
+#define SPEED_VALUE_RESET                   1       //变速重置值
+
 class FlashSpeedCtrller : public QMainWindow
 {
     Q_OBJECT

@@ -8,8 +8,8 @@ StartupOptions::StartupOptions(QWidget *parent)
     ui -> setupUi(this);
 
     /*绑定回调    BEGIN*/
-    connect(ui->h5_mode_btn, SIGNAL(clicked()), this, SLOT(switch_h5_mode()));
-    connect(ui->flash_mode_btn, SIGNAL(clicked()), this, SLOT(switch_flash_mode()));
+    connect(ui -> h5_mode_btn, SIGNAL(clicked()), this, SLOT(switch_h5_mode()));
+    connect(ui -> flash_mode_btn, SIGNAL(clicked()), this, SLOT(switch_flash_mode()));
     /*绑定回调    END*/
 
 }

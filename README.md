@@ -5,7 +5,7 @@ MSVC2017@32bit
 QT5
 CMake
 # 调试
-请在该级目录外新建一级目录以进行调试
+请在该级目录外新建一级目录以进行调试，并且需要将文件夹startup_options放到可执行文件同一目录下，并添加dll文件。
 
 # 脚本命令
 ## 链接DLL文件
@@ -21,8 +21,3 @@ CMake
 
 ### 变速器
 .\uic E:\GimXR_Workspace\GimXR_seer_lander\gim-tt_seer_lander\lib\flash_mode\flash_speed_ctrller\flash_speed_ctrller_ui.ui -o E:\GimXR_Workspace\GimXR_seer_lander\gim-tt_seer_lander\lib\flash_mode\flash_speed_ctrller\flash_speed_ctrller_ui.h
-
-
-### 变速
-
-
