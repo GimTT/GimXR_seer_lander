@@ -11,11 +11,13 @@
 
 #include <ActiveQt/QAxWidget>
 #include <QtCore/QVariant>
+#include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QCheckBox>
-#include <QtWidgets/QComboBox>
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QMainWindow>
+#include <QtWidgets/QMenu>
+#include <QtWidgets/QMenuBar>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -24,33 +26,45 @@ class Ui_FlashLanderMainWindow
 {
 public:
     QWidget *centralwidget;
+    QVBoxLayout *central_widget_layout;
     QGroupBox *groupBox;
     QAxWidget *seer_flash_game_window_axWidget;
-    QComboBox *comboBox;
-    QCheckBox *audio_mute_checkBox;
+    QMenuBar *menuBar;
+    QMenu *menu;
+    QMenu *option;
 
     void setupUi(QMainWindow *FlashLanderMainWindow)
     {
         if (FlashLanderMainWindow->objectName().isEmpty())
             FlashLanderMainWindow->setObjectName(QString::fromUtf8("FlashLanderMainWindow"));
         FlashLanderMainWindow->resize(960, 580);
-        FlashLanderMainWindow->setMinimumSize(QSize(480, 280));
         centralwidget = new QWidget(FlashLanderMainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        centralwidget->setMinimumSize(QSize(480, 280));
+        central_widget_layout = new QVBoxLayout(centralwidget);
+        central_widget_layout->setSpacing(0);
+        central_widget_layout->setObjectName(QString::fromUtf8("central_widget_layout"));
+        central_widget_layout->setContentsMargins(0, 0, 0, 0);
         groupBox = new QGroupBox(centralwidget);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
-        groupBox->setGeometry(QRect(0, 20, 960, 560));
         seer_flash_game_window_axWidget = new QAxWidget(groupBox);
         seer_flash_game_window_axWidget->setObjectName(QString::fromUtf8("seer_flash_game_window_axWidget"));
-        seer_flash_game_window_axWidget->setGeometry(QRect(0, 0, 980, 580));
-        comboBox = new QComboBox(centralwidget);
-        comboBox->setObjectName(QString::fromUtf8("comboBox"));
-        comboBox->setGeometry(QRect(0, 0, 75, 20));
-        audio_mute_checkBox = new QCheckBox(centralwidget);
-        audio_mute_checkBox->setObjectName(QString::fromUtf8("audio_mute_checkBox"));
-        audio_mute_checkBox->setGeometry(QRect(910, 0, 50, 20));
+        seer_flash_game_window_axWidget->setProperty("geometry", QVariant(QRect(0, 0, 960, 560)));
+
+        central_widget_layout->addWidget(groupBox);
+
         FlashLanderMainWindow->setCentralWidget(centralwidget);
+        menuBar = new QMenuBar(FlashLanderMainWindow);
+        menuBar->setObjectName(QString::fromUtf8("menuBar"));
+        menuBar->setGeometry(QRect(0, 0, 960, 22));
+        menu = new QMenu(menuBar);
+        menu->setObjectName(QString::fromUtf8("menu"));
+        menu->setGeometry(QRect(269, 127, 120, 50));
+        option = new QMenu(menuBar);
+        option->setObjectName(QString::fromUtf8("option"));
+        FlashLanderMainWindow->setMenuBar(menuBar);
+
+        menuBar->addAction(menu->menuAction());
+        menuBar->addAction(option->menuAction());
 
         retranslateUi(FlashLanderMainWindow);
 
@@ -59,10 +73,13 @@ public:
 
     void retranslateUi(QMainWindow *FlashLanderMainWindow)
     {
-        FlashLanderMainWindow->setWindowTitle(QApplication::translate("FlashLanderMainWindow", "MainWindow", nullptr));
+        FlashLanderMainWindow->setWindowTitle(QApplication::translate("FlashLanderMainWindow", "FLASH\346\250\241\345\274\217", nullptr));
         groupBox->setTitle(QApplication::translate("FlashLanderMainWindow", "GroupBox", nullptr));
-        comboBox->setCurrentText(QString());
-        audio_mute_checkBox->setText(QApplication::translate("FlashLanderMainWindow", "\351\235\231\351\237\263", nullptr));
+#ifndef QT_NO_ACCESSIBILITY
+        seer_flash_game_window_axWidget->setProperty("accessibleName", QVariant(QString()));
+#endif // QT_NO_ACCESSIBILITY
+        menu->setTitle(QApplication::translate("FlashLanderMainWindow", "\350\217\234\345\215\225", nullptr));
+        option->setTitle(QApplication::translate("FlashLanderMainWindow", "\351\200\211\351\241\271", nullptr));
     } // retranslateUi
 
 };

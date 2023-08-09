@@ -11,55 +11,76 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>FLASH模式</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QGroupBox" name="groupBox">
+   <layout class="QVBoxLayout" name="central_widget_layout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QGroupBox" name="groupBox">
+      <property name="title">
+       <string>GroupBox</string>
+      </property>
+      <widget class="QAxWidget" name="seer_flash_game_window_axWidget">
+       <property name="geometry" stdset="0">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>960</width>
+         <height>560</height>
+        </rect>
+       </property>
+       <property name="accessibleName" stdset="0">
+        <string/>
+       </property>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>960</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>20</y>
-      <width>960</width>
-      <height>560</height>
+      <x>269</x>
+      <y>127</y>
+      <width>120</width>
+      <height>50</height>
      </rect>
     </property>
     <property name="title">
-     <string>GroupBox</string>
-    </property>
-    <widget class="QAxWidget" name="seer_flash_game_window_axWidget">
-     <property name="geometry" stdset="0">
-      <rect>
-       <x>0</x>
-       <y>0</y>
-       <width>960</width>
-       <height>560</height>
-      </rect>
-     </property>
-    </widget>
-   </widget>
-   <widget class="QCheckBox" name="audio_mute_checkBox">
-    <property name="geometry">
-     <rect>
-      <x>910</x>
-      <y>0</y>
-      <width>50</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>静音</string>
+     <string>菜单</string>
     </property>
    </widget>
-   <widget class="QComboBox" name="comboBox">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>75</width>
-      <height>20</height>
-     </rect>
+   <widget class="QMenu" name="option">
+    <property name="title">
+     <string>选项</string>
     </property>
    </widget>
+   <addaction name="menu"/>
+   <addaction name="option"/>
   </widget>
  </widget>
  <customwidgets>

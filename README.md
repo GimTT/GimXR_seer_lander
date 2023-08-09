@@ -13,9 +13,16 @@ CMake
 
 ## H5模式的ui转化
 ### 主界面
-.\uic E:\GimXR_Workspace\GimXR_seer_lander\seer_lander\lib\h5_mode\h5_main_window\h5_main_window_ui.ui -o E:\GimXR_Workspace\GimXR_seer_lander\seer_lander\lib\h5_mode\h5_main_window\h5_main_window_ui.h
+.\uic E:\GimXR_Workspace\GimXR_seer_lander\gim-tt_seer_lander\lib\h5_mode\h5_main_window\h5_main_window_ui.ui -o E:\GimXR_Workspace\GimXR_seer_lander\gim-tt_seer_lander\lib\h5_mode\h5_main_window\h5_main_window_ui.h
 
 ## FLASH模式的ui转化
 ### 主界面
-.\uic E:\GimXR_Workspace\GimXR_seer_lander\seer_lander\lib\flash_mode\flash_main_window\flash_main_window_ui.ui -o E:\GimXR_Workspace\GimXR_seer_lander\seer_lander\lib\flash_mode\flash_main_window\flash_main_window_ui.h
+.\uic E:\GimXR_Workspace\GimXR_seer_lander\gim-tt_seer_lander\lib\flash_mode\flash_main_window\flash_main_window_ui.ui -o E:\GimXR_Workspace\GimXR_seer_lander\gim-tt_seer_lander\lib\flash_mode\flash_main_window\flash_main_window_ui.h
+
+### 变速器
+.\uic E:\GimXR_Workspace\GimXR_seer_lander\gim-tt_seer_lander\lib\flash_mode\flash_speed_ctrller\flash_speed_ctrller_ui.ui -o E:\GimXR_Workspace\GimXR_seer_lander\gim-tt_seer_lander\lib\flash_mode\flash_speed_ctrller\flash_speed_ctrller_ui.h
+
+
+### 变速
+
 

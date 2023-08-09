@@ -7,13 +7,13 @@
 #include "h5_main_window_ui.h"
 
 
-class h5_main_window : public QMainWindow, public Ui::H5LanderMainWindow
+class H5MainWindow : public QMainWindow, public Ui::H5LanderMainWindow
 {
     Q_OBJECT
 
 public:
-    h5_main_window(QWidget * parent = nullptr);
-    ~h5_main_window();
+    H5MainWindow(QWidget * parent = nullptr);
+    ~H5MainWindow();
 
 public slots:
     void audio_mute();

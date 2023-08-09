@@ -1,7 +1,7 @@
+﻿#include <QDebug>
 #include "startup_options.h"
-#include <stdio.h>
 
-startup_options::startup_options(QWidget *parent)
+StartupOptions::StartupOptions(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::StartupModeWindow)
 {
@@ -14,21 +14,21 @@ startup_options::startup_options(QWidget *parent)
 
 }
 
-startup_options::~startup_options()
+StartupOptions::~StartupOptions()
 {
 
 }
 
-void startup_options::switch_flash_mode(void)
+void StartupOptions::switch_flash_mode(void)
 {
-    printf("--------------Switch to Flash mode!---------------\n");
+    qDebug() << ("--------------Switch to Flash mode!---------------");
     this->hide();
-    flash_main_window_t.show();
+    flash_window.show();
 }
 
-void startup_options::switch_h5_mode(void)
+void StartupOptions::switch_h5_mode(void)
 {
-    printf("----------------Switch to H5 mode!----------------\n");
+    qDebug() << ("----------------Switch to H5 mode!----------------");
     this->hide();
-    h5_main_window_t.show();
+    h5_window.show();
 }
