@@ -1,5 +1,6 @@
 ﻿#include <QDebug>
 #include <QDesktopWidget>
+#include "../../../lander_conf.h"
 #include "flash_speed_ctrller.h"
 
 FlashSpeedCtrller::FlashSpeedCtrller(QWidget *parent)
@@ -7,7 +8,7 @@ FlashSpeedCtrller::FlashSpeedCtrller(QWidget *parent)
     , ui(new Ui::SpeedCtrllerWindow)
 {
     /*注册dll       BEGIN*/
-    speed_ctrl_handle = LoadLibrary("SpeedControl.dll");
+    speed_ctrl_handle = LoadLibrary(SPEED_CTRLLER_DLL_PATH);
     speed_set_range = (speed_set_range_t)GetProcAddress(speed_ctrl_handle, "SetRange");
     /*注册dll       END*/
 

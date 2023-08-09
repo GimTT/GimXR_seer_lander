@@ -2,13 +2,8 @@
 #include <QMessageBox>
 #include <QCloseEvent>
 #include "flash_main_window.h"
+#include "../../../lander_conf.h"
 #include "../../audio_mute/mediamute.h"
-
-#if TEST_MODE
-    #define FLASH_MODE_URL ("http://www.baidu.com/")
-#else
-    #define FLASH_MODE_URL ("http://seer.61.com/play.shtml")
-#endif
 
 FlashMainWindow::FlashMainWindow(QWidget *parent)
     : QMainWindow(parent)

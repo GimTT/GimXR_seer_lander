@@ -1,5 +1,5 @@
-#ifndef MUTEDSESSIONEVENTS_H
-#define MUTEDSESSIONEVENTS_H
+#ifndef __MUTEDSESSIONEVENTS_H__
+#define __MUTEDSESSIONEVENTS_H__
 
 #include <mmdeviceapi.h>
 #include <Audiopolicy.h>

@@ -37,22 +37,14 @@ public:
         flash_mode_btn->setObjectName(QString::fromUtf8("flash_mode_btn"));
         flash_mode_btn->setGeometry(QRect(0, 0, 320, 140));
         QIcon icon;
-#if DEV_MODE
-        icon.addFile(QString::fromUtf8("E:/GimXR_Workspace/GimXR_seer_lander/seer_lander/lib/startup_options/Flash_Logo.png"), QSize(), QIcon::Normal, QIcon::Off);
-#else
-        icon.addFile(QString::fromUtf8("startup_options/Flash_Logo.png"), QSize(), QIcon::Normal, QIcon::Off);
-#endif
+        icon.addFile(QString::fromUtf8(SEER_LANDER_FLASH_LOGO), QSize(), QIcon::Normal, QIcon::Off);
         flash_mode_btn->setIcon(icon);
         flash_mode_btn->setIconSize(QSize(320, 320));
         h5_mode_btn = new QPushButton(centralwidget);
         h5_mode_btn->setObjectName(QString::fromUtf8("h5_mode_btn"));
         h5_mode_btn->setGeometry(QRect(320, 0, 320, 140));
         QIcon icon1;
-#if DEV_MODE
-        icon1.addFile(QString::fromUtf8("E:/GimXR_Workspace/GimXR_seer_lander/seer_lander/lib/startup_options/H5_Logo.png"), QSize(), QIcon::Normal, QIcon::Off);
-#else
-        icon1.addFile(QString::fromUtf8("startup_options/H5_Logo.png"), QSize(), QIcon::Normal, QIcon::Off);
-#endif
+        icon1.addFile(QString::fromUtf8(SEER_LANDER_H5_LOGO), QSize(), QIcon::Normal, QIcon::Off);
         h5_mode_btn->setIcon(icon1);
         h5_mode_btn->setIconSize(QSize(320, 320));
         StartupModeWindow->setCentralWidget(centralwidget);

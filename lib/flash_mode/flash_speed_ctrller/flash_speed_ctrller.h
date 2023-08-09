@@ -1,5 +1,5 @@
-﻿#ifndef FLASH_SPEED_CTRLLER_H
-#define FLASH_SPEED_CTRLLER_H
+﻿#ifndef __FLASH_SPEED_CTRLLER_H__
+#define __FLASH_SPEED_CTRLLER_H__
 
 #include <QMainWindow>
 #include <windows.h>

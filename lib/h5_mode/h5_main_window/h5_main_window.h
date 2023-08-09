@@ -1,5 +1,5 @@
-#ifndef H5_MAIN_WINDOW_H
-#define H5_MAIN_WINDOW_H
+#ifndef __H5_MAIN_WINDOW_H__
+#define __H5_MAIN_WINDOW_H__
 
 #include <QMainWindow>
 #include <QWebEngineView>
@@ -14,14 +14,16 @@ class H5MainWindow : public QMainWindow, public Ui::H5LanderMainWindow
 public:
     H5MainWindow(QWidget * parent = nullptr);
     ~H5MainWindow();
+    void menu_add_items(void);
 
 public slots:
-    void audio_mute();
+    void audio_mute(bool status);
     void game_refresh();
+    void menu_trigger(QAction* act);
 
 private:
     Ui::H5LanderMainWindow *ui;
-    QWebEngineView * m_view;
+    QWebEngineView * seer_h5_view;
 };
 
 #endif // H5_MAIN_WINDOW_H

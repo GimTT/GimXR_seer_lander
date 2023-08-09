@@ -23,51 +23,41 @@
    <property name="minimumSize">
     <size>
      <width>960</width>
-     <height>580</height>
+     <height>560</height>
     </size>
    </property>
    <property name="maximumSize">
     <size>
-     <width>980</width>
-     <height>580</height>
+     <width>960</width>
+     <height>560</height>
     </size>
    </property>
-   <widget class="QPushButton" name="refresh_btn">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>50</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>刷新</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="audio_mute_checkBox">
-    <property name="geometry">
-     <rect>
-      <x>910</x>
-      <y>0</y>
-      <width>50</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>静音</string>
-    </property>
-   </widget>
    <widget class="QFrame" name="seer_h5_game_window_frame">
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>20</y>
+      <y>0</y>
       <width>960</width>
       <height>560</height>
      </rect>
     </property>
    </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>960</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>菜单</string>
+    </property>
+   </widget>
+   <addaction name="menu"/>
   </widget>
  </widget>
  <resources/>

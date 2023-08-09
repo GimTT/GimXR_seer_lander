@@ -24,6 +24,7 @@ add_subdirectory(lib/h5_mode/h5_main_window)
 add_subdirectory(lib/flash_mode/flash_main_window)
 add_subdirectory(lib/flash_mode/flash_speed_ctrller)
 add_subdirectory(lib/audio_mute)
+add_subdirectory(lib/dm)
 
 add_executable(seer_lander WIN32 main.cpp)
 
@@ -36,6 +37,7 @@ target_link_libraries(seer_lander
 
 
 target_link_libraries(seer_lander StartupOptions)
+target_link_libraries(seer_lander DM)
 target_link_libraries(seer_lander AudioMute)
 target_link_libraries(seer_lander H5MainWindow)
 target_link_libraries(seer_lander FlashSpeedCtrller)

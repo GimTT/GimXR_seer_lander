@@ -1,5 +1,5 @@
-﻿#ifndef STARTUP_OPTIONS_H
-#define STARTUP_OPTIONS_H
+﻿#ifndef __STARTUP_OPTIONS_H__
+#define __STARTUP_OPTIONS_H__
 
 #include <QMainWindow>
 #include "startup_options_ui.h"

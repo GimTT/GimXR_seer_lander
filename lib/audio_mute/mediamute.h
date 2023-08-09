@@ -1,5 +1,5 @@
-#ifndef MEDIAMUTE_H
-#define MEDIAMUTE_H
+#ifndef __MEDIAMUTE_H__
+#define __MEDIAMUTE_H__
 
 #include "Mmdeviceapi.h"
 #include "Audiopolicy.h"
