@@ -3,6 +3,7 @@
 
 int main(int argc, char *argv[])
 {
+    raisePrivilege();
     QApplication app(argc, argv);
     StartupOptions startup_options;
     startup_options.show();

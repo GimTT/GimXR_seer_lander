@@ -23,3 +23,4 @@
 
 #define SPEED_CTRLLER_DLL_PATH      ("./lander/bin/SpeedControl.dll")
 #define DM_DLL_PATH                 ("./lander/bin/dm.dll")
+#define DM_REG_DLL_PATH             ("./lander/bin/RegDll.dll")

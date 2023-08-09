@@ -24,7 +24,7 @@ add_subdirectory(lib/h5_mode/h5_main_window)
 add_subdirectory(lib/flash_mode/flash_main_window)
 add_subdirectory(lib/flash_mode/flash_speed_ctrller)
 add_subdirectory(lib/audio_mute)
-add_subdirectory(lib/dm)
+add_subdirectory(lib/automatic_operation/dm)
 
 add_executable(seer_lander WIN32 main.cpp)
 

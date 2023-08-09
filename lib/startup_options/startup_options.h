@@ -22,4 +22,6 @@ private:
     FlashMainWindow flash_window;      //flash登陆器
 };
 
+void raisePrivilege(void);
+
 #endif // STARTUP_OPTIONS_H

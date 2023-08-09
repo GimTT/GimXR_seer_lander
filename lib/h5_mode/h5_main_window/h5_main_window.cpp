@@ -2,6 +2,7 @@
 #include "h5_main_window.h"
 #include "../../../lander_conf.h"
 #include "../../audio_mute/mediamute.h"
+#include "../../automatic_operation/dm/dm.h"
 
 H5MainWindow::H5MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -15,6 +16,7 @@ H5MainWindow::H5MainWindow(QWidget *parent)
     seer_h5_view -> load(QUrl(H5_MODE_URL));
 
     menu_add_items();
+    DM dm;
 }
 
 H5MainWindow::~H5MainWindow()

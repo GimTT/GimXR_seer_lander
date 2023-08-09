@@ -41,19 +41,19 @@ void FlashMainWindow::audio_mute(bool status)
     if(status == true)
     {
         Cmute.SetMute(true);
-        qDebug() << ("[FLASH_MAIN_WIN][1]audio mute!");
+        qDebug() << "[FLASH_MAIN_WIN][1]audio mute!";
     }
     else if(status == false)
     {
         Cmute.SetMute(false);
-        qDebug() << ("[FLASH_MAIN_WIN][0]audio unmute!");
+        qDebug() << "[FLASH_MAIN_WIN][0]audio unmute!";
     }
 }
 
 void FlashMainWindow::game_refresh(void)
 {
-    ui->seer_flash_game_window_axWidget -> dynamicCall("Navigate(const QString&)", FLASH_MODE_URL);
-    qDebug() << ("[FLASH_MAIN_WIN]ReLoad!");
+    ui -> seer_flash_game_window_axWidget -> dynamicCall("Navigate(const QString&)", FLASH_MODE_URL);
+    qDebug() << "[FLASH_MAIN_WIN]ReLoad!";
 }
 
 void FlashMainWindow::create_speed_ctrller(void)
