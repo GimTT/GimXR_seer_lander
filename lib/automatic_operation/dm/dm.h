@@ -9,11 +9,12 @@ class DM
 public:
     DM();
     ~DM();
-    QAxWidget * dm_handle;
+    void bind_window(uint64_t pid);
 
 private:
-    void reg_dm(void);
-    void dm_handle_init(void);
+    QAxWidget * dm_handle;
+    void reg(void);
+    void handle_init(void);
 };
 
 #endif // __DM_H__

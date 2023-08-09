@@ -1,8 +1,9 @@
 ﻿#include <QDebug>
+#include <QCloseEvent>
+#include <QMessageBox>
 #include "h5_main_window.h"
 #include "../../../lander_conf.h"
 #include "../../audio_mute/mediamute.h"
-#include "../../automatic_operation/dm/dm.h"
 
 H5MainWindow::H5MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -16,7 +17,6 @@ H5MainWindow::H5MainWindow(QWidget *parent)
     seer_h5_view -> load(QUrl(H5_MODE_URL));
 
     menu_add_items();
-    DM dm;
 }
 
 H5MainWindow::~H5MainWindow()
@@ -27,7 +27,7 @@ H5MainWindow::~H5MainWindow()
 void H5MainWindow::menu_add_items(void)
 {
     ui -> menu -> addAction(QString::fromLocal8Bit("刷新"));
-    ui -> menu -> addAction(QString::fromLocal8Bit("静音"))->setCheckable(true);
+    ui -> menu -> addAction(QString::fromLocal8Bit("静音")) -> setCheckable(true);
 
     /*链接选项回调      BEGIN*/
     connect(ui -> menu, SIGNAL(triggered(QAction*)), this, SLOT(menu_trigger(QAction*)));
@@ -74,3 +74,24 @@ void H5MainWindow::menu_trigger(QAction* act)
         }
     }
 }
+
+void H5MainWindow::closeEvent(QCloseEvent *event)
+{
+    int result = QMessageBox::information(this,QString::fromLocal8Bit("系统提示"),\
+                                         QString::fromLocal8Bit("是否关闭登录器?"),\
+                                                    QString::fromLocal8Bit("是"),\
+                                                    QString::fromLocal8Bit("否"),\
+                                                    0, 1);
+    if(result)
+    {
+        event -> ignore();
+    }
+
+    else
+    {
+        deleteLater();
+        seer_h5_view -> close();
+        event -> accept();
+    }
+}
+

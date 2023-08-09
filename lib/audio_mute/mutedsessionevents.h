@@ -1,4 +1,4 @@
-#ifndef __MUTEDSESSIONEVENTS_H__
+﻿#ifndef __MUTEDSESSIONEVENTS_H__
 #define __MUTEDSESSIONEVENTS_H__
 
 #include <mmdeviceapi.h>
@@ -24,7 +24,7 @@ class CMutedSessionEvents : public IAudioSessionEvents
         bool TxSetMuted(bool bMuted);
     private:
         LONG _cRef;
-        IAudioSessionManager* m_AudioSessionManager;
+        IAudioSessionManager * m_AudioSessionManager;
 };
 
 extern volatile bool g_bMuted;

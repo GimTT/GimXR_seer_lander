@@ -21,3 +21,7 @@ CMake
 
 ### 变速器
 .\uic E:\GimXR_Workspace\GimXR_seer_lander\gim-tt_seer_lander\lib\flash_mode\flash_speed_ctrller\flash_speed_ctrller_ui.ui -o E:\GimXR_Workspace\GimXR_seer_lander\gim-tt_seer_lander\lib\flash_mode\flash_speed_ctrller\flash_speed_ctrller_ui.h
+
+## 大漠部分的ui转化
+### 自定义脚本
+.\uic E:\GimXR_Workspace\GimXR_seer_lander\gim-tt_seer_lander\lib\automatic_operation\dm_window\dm_window_ui.ui -o E:\GimXR_Workspace\GimXR_seer_lander\gim-tt_seer_lander\lib\automatic_operation\dm_window\dm_window_ui.h

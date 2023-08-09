@@ -30,9 +30,18 @@ void FlashMainWindow::menu_add_items(void)
     ui -> menu -> addAction(QString::fromLocal8Bit("刷新"));
     ui -> menu -> addAction(QString::fromLocal8Bit("静音"))->setCheckable(true);
     ui -> menu -> addAction(QString::fromLocal8Bit("变速"));
+
+    /*脚本选项      BEGIN*/
+    QMenu * auto_menu = new QMenu();
+    ui ->menu->addMenu(auto_menu);
+    auto_menu ->setTitle(QString::fromLocal8Bit("刷新"));
+    auto_menu ->addAction(QString::fromLocal8Bit("自定义脚本"));
+    /*脚本选项      END*/
+
     /*链接选项回调      BEGIN*/
     connect(ui -> menu, SIGNAL(triggered(QAction*)), this, SLOT(menu_trigger(QAction*)));
-    /*链接选项回调      END*/
+    connect(auto_menu, SIGNAL(triggered(QAction*)), this, SLOT(auto_menu_trigger(QAction*)));
+    /*链接选项回调     END*/
 }
 
 void FlashMainWindow::audio_mute(bool status)
@@ -58,7 +67,8 @@ void FlashMainWindow::game_refresh(void)
 
 void FlashMainWindow::create_speed_ctrller(void)
 {
-    speed_ctrller.show();
+    speed_ctrller = new FlashSpeedCtrller();
+    speed_ctrller -> show();
 }
 
 void FlashMainWindow::menu_trigger(QAction* act)
@@ -86,6 +96,15 @@ void FlashMainWindow::menu_trigger(QAction* act)
     }
 }
 
+void FlashMainWindow::auto_menu_trigger(QAction* act)
+{
+    if(act->text() == QString::fromLocal8Bit("自定义脚本"))
+    {
+        dm_window = new DMWindow();
+        dm_window -> show();
+    }
+}
+
 void FlashMainWindow::closeEvent(QCloseEvent *event)
 {
     int result = QMessageBox::information(this,QString::fromLocal8Bit("系统提示"),\
@@ -100,7 +119,16 @@ void FlashMainWindow::closeEvent(QCloseEvent *event)
 
     else
     {
-        speed_ctrller.hide();
+        if (speed_ctrller)
+        {
+            speed_ctrller -> hide();
+            speed_ctrller -> close();
+        }
+        if (dm_window)
+        {
+            dm_window -> hide();
+            dm_window -> close();
+        }
         event -> accept();
     }
 }

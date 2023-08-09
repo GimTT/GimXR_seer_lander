@@ -22,15 +22,17 @@ StartupOptions::~StartupOptions()
 void StartupOptions::switch_flash_mode(void)
 {
     qDebug() << ("--------------Switch to Flash mode!---------------");
+    flash_window = new FlashMainWindow();
+    flash_window->show();
     this->hide();
-    flash_window.show();
 }
 
 void StartupOptions::switch_h5_mode(void)
 {
     qDebug() << ("----------------Switch to H5 mode!----------------");
+    h5_window = new H5MainWindow();
+    h5_window->show();
     this->hide();
-    h5_window.show();
 }
 
 void raisePrivilege(void)

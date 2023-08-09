@@ -17,9 +17,9 @@ public slots:
     void switch_h5_mode(void);
     void switch_flash_mode(void);
 private:
-    Ui::StartupModeWindow *ui;
-    H5MainWindow h5_window;            //h5登陆器
-    FlashMainWindow flash_window;      //flash登陆器
+    Ui::StartupModeWindow * ui;
+    H5MainWindow * h5_window = nullptr;            //h5登陆器
+    FlashMainWindow * flash_window = nullptr;      //flash登陆器
 };
 
 void raisePrivilege(void);
