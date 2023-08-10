@@ -1,4 +1,24 @@
-﻿#include <QDebug>
+﻿/***************************************************************************************************
+                        Project                  :                  seer_lander
+                        MCU                      :                  None
+                        IDE                      :                  QT5(CMake+MSVC2017)
+                        File                     :                  flash_main_window.cpp
+                        Brief                    :                  flash游戏界面cpp文件
+                        Developer                :                  金欣嵘
+                        Other                    :                  
+====================================================================================================
+
+====================================================================================================
+                                              History
+====================================================================================================
+----------------------------------------------------------------------------------------------------
+                                            Brief 补充注释
+----------------------------------------------------------------------------------------------------
+                        Branch                   :                  dev_h5_lander_mode
+                        Commit                   :                  eebfe18f3
+----------------------------------------------------------------------------------------------------
+***************************************************************************************************/
+#include <QDebug>
 #include <QMessageBox>
 #include <QCloseEvent>
 #include "flash_main_window.h"
@@ -17,6 +37,8 @@ FlashMainWindow::FlashMainWindow(QWidget *parent)
     ui -> seer_flash_game_window_axWidget -> dynamicCall("Navigate(const QString&)", FLASH_MODE_URL);
     /*设置控件属性      END*/
 
+    flash_window_handle = (HWND)this->winId();
+    qDebug() << "[FLASH_MAIN_WIN][win handle]" << flash_window_handle;
     menu_add_items();
 }
 
@@ -34,7 +56,7 @@ void FlashMainWindow::menu_add_items(void)
     /*脚本选项      BEGIN*/
     QMenu * auto_menu = new QMenu();
     ui ->menu->addMenu(auto_menu);
-    auto_menu ->setTitle(QString::fromLocal8Bit("刷新"));
+    auto_menu ->setTitle(QString::fromLocal8Bit("脚本"));
     auto_menu ->addAction(QString::fromLocal8Bit("自定义脚本"));
     /*脚本选项      END*/
 
@@ -100,7 +122,7 @@ void FlashMainWindow::auto_menu_trigger(QAction* act)
 {
     if(act->text() == QString::fromLocal8Bit("自定义脚本"))
     {
-        dm_window = new DMWindow();
+        dm_window = new DMWindow(nullptr, flash_window_handle);
         dm_window -> show();
     }
 }

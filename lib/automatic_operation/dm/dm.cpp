@@ -1,4 +1,24 @@
-﻿#include <qprocess.h>
+﻿/***************************************************************************************************
+                        Project                  :                  seer_lander
+                        MCU                      :                  None
+                        IDE                      :                  QT5(CMake+MSVC2017)
+                        File                     :                  dm.cpp
+                        Brief                    :                  大漠插件基cpp文件
+                        Developer                :                  金欣嵘
+                        Other                    :                  
+====================================================================================================
+
+====================================================================================================
+                                              History
+====================================================================================================
+----------------------------------------------------------------------------------------------------
+                                            Brief 补充注释
+----------------------------------------------------------------------------------------------------
+                        Branch                   :                  dev_h5_lander_mode
+                        Commit                   :                  eebfe18f3
+----------------------------------------------------------------------------------------------------
+***************************************************************************************************/
+#include <qprocess.h>
 #include <Windows.h>
 #include <QDebug>
 #include "dm.h"
@@ -6,8 +26,15 @@
 
 DM::DM()
 {
-    reg();
-    handle_init();
+    if (QString::compare(handle_init(), "3.1233"))
+    {
+        reg();
+        handle_init();
+    }
+    else
+    {
+        qDebug() << "[DM_HANDLE]dm dll is inited";
+    }
 }
 
 DM::~DM()
@@ -25,16 +52,19 @@ void DM::reg(void)
     process.waitForFinished();
 }
 
-void DM::handle_init(void)
+QString DM::handle_init(void)
 {
+    QString version;
     dm_handle = new QAxWidget();
     dm_handle -> setControl(QString::fromUtf8("{26037A0E-7CBD-4FFF-9C63-56F2D0770214}"));
-    qDebug() << "[DM_HANDLE]init read version: " + dm_handle -> dynamicCall("Ver()").toString();
+    version = dm_handle -> dynamicCall("Ver()").toString();
+    qDebug() << "[DM_HANDLE]init read version: " + version;
+    return version;
 }
 
-void DM::bind_window(uint64_t pid)
+void DM::bind_window(uint32_t pid)
 {
-    QString func_describe = "BindWindow(" + QString::number(pid) + "\"dx2\", \"windows\", \"windows\", 1)";
+    QString func_describe = "BindWindow(" + QString::number(pid) + ", \"dx2\", \"windows\", \"windows\", 1)";
     dm_handle -> dynamicCall(func_describe.toStdString().c_str());
     qDebug() << "[DM_HANDLE]bind window func call: " << func_describe;
 }
