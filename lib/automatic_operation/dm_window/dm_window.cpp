@@ -41,7 +41,6 @@ DMWindow::~DMWindow()
     
 }
 
-
 void DMWindow::move_window(float relative_pos_x, float relative_pos_y)
 {
     QRect screen_rect = QApplication::desktop()->screenGeometry();

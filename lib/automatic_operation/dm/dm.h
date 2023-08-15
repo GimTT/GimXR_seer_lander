@@ -23,6 +23,12 @@
 
 #include <ActiveQt/QAxWidget>
 
+typedef struct pic_info_t
+{
+    int index;          //图片id
+    int x;              //x
+    int y;              //y
+}pic_info_t;
 class DM
 {
 
@@ -30,6 +36,7 @@ public:
     DM();
     ~DM();
     void bind_window(uint32_t pid);
+    pic_info_t find_pic(int x1, int y1, int x2, int y2, QString pic_name, QString delta_color, double sim, int dir);
 
 private:
     QAxWidget * dm_handle;

@@ -35,6 +35,7 @@ class DMWindow : public QMainWindow
     Q_OBJECT
 
 public:
+    DM * dm;
     DMWindow(QWidget * parent = nullptr, HWND win_handle = nullptr);
     ~DMWindow();
     void move_window(float relative_pos_x, float relative_pos_y);
@@ -43,7 +44,6 @@ public slots:
 
 private:
     Ui::DmWindow * ui;
-    DM * dm;
 };
 
 #endif // __DM_WINDOW_H__

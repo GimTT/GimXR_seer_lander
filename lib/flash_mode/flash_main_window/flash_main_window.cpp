@@ -37,7 +37,7 @@ FlashMainWindow::FlashMainWindow(QWidget *parent)
     ui -> seer_flash_game_window_axWidget -> dynamicCall("Navigate(const QString&)", FLASH_MODE_URL);
     /*设置控件属性      END*/
 
-    flash_window_handle = (HWND)this->winId();
+    flash_window_handle = (HWND)this -> ui -> seer_flash_game_window_axWidget -> winId();
     qDebug() << "[FLASH_MAIN_WIN][win handle]" << flash_window_handle;
     menu_add_items();
 }
@@ -124,6 +124,7 @@ void FlashMainWindow::auto_menu_trigger(QAction* act)
     {
         dm_window = new DMWindow(nullptr, flash_window_handle);
         dm_window -> show();
+        dm_window -> dm -> find_pic(0, 0, this -> width(), this -> height(), "test.bmp", "000000", 0.8, 0);
     }
 }
 
