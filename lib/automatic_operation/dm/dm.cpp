@@ -46,7 +46,7 @@ void DM::reg(void)
 {
     QString path = DM_DLL_PATH;
     QString cmdStr = "Regsvr32 " + path;
-    QProcess process(0);
+    QProcess process(nullptr);
     process.start("cmd", QStringList() << "/c" << cmdStr);
     process.waitForStarted();
     process.waitForFinished();
@@ -66,14 +66,14 @@ pic_info_t DM::find_pic(int x1, int y1, int x2, int y2, QString pic_name, QStrin
 {
     pic_info_t pic_info;
     QString ret_val;
-    QString func_describe = "FindPicE(" + QString::number(x1) + ","\            //第一点横坐标
-                                        + QString::number(y1) + ","\            //第一点纵坐标
-                                        + QString::number(x2) + ","\            //第二点横坐标
-                                        + QString::number(y2) + ","\            //第二点纵坐标
-                                        + "\"" + pic_name + "\"" + ","\         //图片位置
-                                        + "\"" + delta_color + "\"" + ","\      //色偏
-                                        + QString::number(sim) + ","\           //相似度
-                                        + QString::number(dir) + ")";           //扫描方向
+    QString func_describe = "FindPicE(" + QString::number(x1) + ","\
+                                        + QString::number(y1) + ","\
+                                        + QString::number(x2) + ","\
+                                        + QString::number(y2) + ","\
+                                        + "\"" + pic_name + "\"" + ","\
+                                        + "\"" + delta_color + "\"" + ","\
+                                        + QString::number(sim) + ","\
+                                        + QString::number(dir) + ")";
     ret_val = dm_handle -> dynamicCall(func_describe.toStdString().c_str()).toString();
     qDebug() << "[DM_HANDLE]bind window func call: " << func_describe << " retVal: " << ret_val;
 

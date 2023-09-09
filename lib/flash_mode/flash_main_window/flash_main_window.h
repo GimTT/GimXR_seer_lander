@@ -35,13 +35,17 @@ public:
     ~FlashMainWindow();
     void menu_add_items(void);
     void closeEvent(QCloseEvent *event);
+    void resizeEvent(QResizeEvent *event);
 
 public slots:
     void menu_trigger(QAction* act);
+    void setting_trigger(QAction* act);
+    void resize_trigger(QAction* act);
     void auto_menu_trigger(QAction* act);
     void audio_mute(bool status);
     void game_refresh(void);
     void create_speed_ctrller(void);
+    void move_window(float relative_pos_x, float relative_pos_y);
 
 private:
     Ui::FlashLanderMainWindow * ui;

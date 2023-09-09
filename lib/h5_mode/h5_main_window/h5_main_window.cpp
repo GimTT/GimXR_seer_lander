@@ -30,12 +30,7 @@ H5MainWindow::H5MainWindow(QWidget *parent)
     , ui(new Ui::H5LanderMainWindow)
 {
     ui -> setupUi(this);
-    seer_h5_view = new QWebEngineView(this);
-    QStackedLayout * layout = new QStackedLayout(ui -> seer_h5_game_window_frame);
-    ui -> seer_h5_game_window_frame -> setLayout(layout);
-    layout -> addWidget(seer_h5_view);
-    seer_h5_view -> load(QUrl(H5_MODE_URL));
-
+    ui -> seer_h5_view -> load(QUrl(H5_MODE_URL));
     menu_add_items();
 }
 
@@ -71,7 +66,7 @@ void H5MainWindow::audio_mute(bool status)
 
 void H5MainWindow::game_refresh()
 {
-    seer_h5_view -> reload();
+    ui -> seer_h5_view -> reload();
     qDebug() << ("[H5_MAIN_WIN]ReLoad!");
 }
 
@@ -110,8 +105,14 @@ void H5MainWindow::closeEvent(QCloseEvent *event)
     else
     {
         deleteLater();
-        seer_h5_view -> close();
+        ui -> seer_h5_view -> close();
         event -> accept();
     }
 }
 
+void H5MainWindow::resizeEvent(QResizeEvent *event)
+{
+    qDebug() << "window size:" << event->size();
+    ui ->centralwidget->resize(event->size());
+    ui ->seer_h5_view->resize(event->size());
+}

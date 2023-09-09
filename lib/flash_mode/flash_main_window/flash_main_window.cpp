@@ -5,7 +5,7 @@
                         File                     :                  flash_main_window.cpp
                         Brief                    :                  flash游戏界面cpp文件
                         Developer                :                  金欣嵘
-                        Other                    :                  
+                        Other                    :
 ====================================================================================================
 
 ====================================================================================================
@@ -21,6 +21,7 @@
 #include <QDebug>
 #include <QMessageBox>
 #include <QCloseEvent>
+#include <QDesktopWidget>
 #include "flash_main_window.h"
 #include "../../../lander_conf.h"
 #include "../../audio_mute/mediamute.h"
@@ -33,9 +34,13 @@ FlashMainWindow::FlashMainWindow(QWidget *parent)
 
     /*设置控件属性      BEGIN*/
     ui -> seer_flash_game_window_axWidget -> setControl(QString::fromUtf8("{8856F961-340A-11D0-A96B-00C04FD705A2}"));   //注册组件ID
-    ui -> seer_flash_game_window_axWidget -> setProperty("DisplayAlerts",false);                                        //不显示警告信息
+    ui -> seer_flash_game_window_axWidget -> setProperty("DisplayAlerts", false);                                       //不显示警告信息
+    ui -> seer_flash_game_window_axWidget -> setProperty("DisplayScrollBars", false);                                   //不显示滚动条
     ui -> seer_flash_game_window_axWidget -> dynamicCall("Navigate(const QString&)", FLASH_MODE_URL);
     /*设置控件属性      END*/
+
+    this->setWindowFlags(this->windowFlags() &~ Qt::WindowMaximizeButtonHint);
+    setFixedSize(this->width(),this->height());
 
     flash_window_handle = (HWND)this -> ui -> seer_flash_game_window_axWidget -> winId();
     qDebug() << "[FLASH_MAIN_WIN][win handle]" << flash_window_handle;
@@ -47,8 +52,17 @@ FlashMainWindow::~FlashMainWindow()
 
 }
 
+void FlashMainWindow::move_window(float relative_pos_x, float relative_pos_y)
+{
+    QRect screen_rect = QApplication::desktop()->screenGeometry();
+    int screen_width = screen_rect.width();
+    int screen_height = screen_rect.height();
+    this -> move(static_cast<int>((screen_width * relative_pos_x) - (this -> width() / 2)), static_cast<int>((screen_height * relative_pos_y) - (this -> height() / 2)));
+}
+
 void FlashMainWindow::menu_add_items(void)
 {
+    /*菜单选项设置        BEGIN*/
     ui -> menu -> addAction(QString::fromLocal8Bit("刷新"));
     ui -> menu -> addAction(QString::fromLocal8Bit("静音"))->setCheckable(true);
     ui -> menu -> addAction(QString::fromLocal8Bit("变速"));
@@ -60,10 +74,29 @@ void FlashMainWindow::menu_add_items(void)
     auto_menu ->addAction(QString::fromLocal8Bit("自定义脚本"));
     /*脚本选项      END*/
 
-    /*链接选项回调      BEGIN*/
+    /*链接选项回调    BEGIN*/
     connect(ui -> menu, SIGNAL(triggered(QAction*)), this, SLOT(menu_trigger(QAction*)));
     connect(auto_menu, SIGNAL(triggered(QAction*)), this, SLOT(auto_menu_trigger(QAction*)));
-    /*链接选项回调     END*/
+    /*链接选项回调    END*/
+    /*菜单选项设置        END*/
+
+    /*设置选项设置        BEGIN*/
+    /*缩放选项      BEGIN*/
+    QMenu * resize_menu = new QMenu();
+    ui -> setting -> addMenu(resize_menu);
+    resize_menu -> setTitle(QString::fromLocal8Bit("缩放"));
+    resize_menu -> addAction(QString::fromLocal8Bit("50%"));
+    resize_menu -> addAction(QString::fromLocal8Bit("75%"));
+    resize_menu -> addAction(QString::fromLocal8Bit("100%"));
+    resize_menu -> addAction(QString::fromLocal8Bit("125%"));
+    resize_menu -> addAction(QString::fromLocal8Bit("150%"));
+    /*缩放选项      END*/
+
+    /*链接设置回调    BEGIN*/
+    connect(ui -> setting, SIGNAL(triggered(QAction*)), this, SLOT(setting_trigger(QAction*)));
+    connect(resize_menu, SIGNAL(triggered(QAction*)), this, SLOT(resize_trigger(QAction*)));
+    /*链接设置回调    END*/
+    /*设置选项设置        END*/
 }
 
 void FlashMainWindow::audio_mute(bool status)
@@ -118,6 +151,12 @@ void FlashMainWindow::menu_trigger(QAction* act)
     }
 }
 
+void FlashMainWindow::setting_trigger(QAction* act)
+{
+
+}
+
+
 void FlashMainWindow::auto_menu_trigger(QAction* act)
 {
     if(act->text() == QString::fromLocal8Bit("自定义脚本"))
@@ -128,13 +167,43 @@ void FlashMainWindow::auto_menu_trigger(QAction* act)
     }
 }
 
+void FlashMainWindow::resize_trigger(QAction* act)
+{
+    if(act->text() == QString::fromLocal8Bit("50%"))
+    {
+        this->setFixedSize(static_cast<int>(960.0 * 0.5), (static_cast<int>(560.0 * 0.5) + 22));
+        ui-> seer_flash_game_window_axWidget -> dynamicCall(("ExecWB(OLECMDID_OPTICAL_ZOOM, OLECMDEXECOPT_DODEFAULT, " + QString::number(50) + ")").toStdString().c_str());
+    }
+    else if (act->text() == QString::fromLocal8Bit("75%"))
+    {
+        this->setFixedSize(static_cast<int>(960.0 * 0.75), static_cast<int>((560.0 * 0.75) + 22));
+        ui-> seer_flash_game_window_axWidget -> dynamicCall(("ExecWB(OLECMDID_OPTICAL_ZOOM, OLECMDEXECOPT_DODEFAULT, " + QString::number(75) + ")").toStdString().c_str());
+
+    }
+    else if (act->text() == QString::fromLocal8Bit("100%"))
+    {
+        this->setFixedSize(static_cast<int>(960.0 * 1.0), static_cast<int>((560.0 * 1.0) + 22));
+        ui-> seer_flash_game_window_axWidget -> dynamicCall(("ExecWB(OLECMDID_OPTICAL_ZOOM, OLECMDEXECOPT_DODEFAULT, " + QString::number(100) + ")").toStdString().c_str());
+    }
+    else if (act->text() == QString::fromLocal8Bit("125%"))
+    {
+        this->setFixedSize(static_cast<int>(960.0 * 1.25), static_cast<int>((560.0 * 1.25) + 22));
+        ui-> seer_flash_game_window_axWidget -> dynamicCall(("ExecWB(OLECMDID_OPTICAL_ZOOM, OLECMDEXECOPT_DODEFAULT, " + QString::number(125) + ")").toStdString().c_str());
+    }
+    else if (act->text() == QString::fromLocal8Bit("150%"))
+    {
+        this->setFixedSize(static_cast<int>(960.0 * 1.50), static_cast<int>((560.0 * 1.50) + 22));
+        ui-> seer_flash_game_window_axWidget -> dynamicCall(("ExecWB(OLECMDID_OPTICAL_ZOOM, OLECMDEXECOPT_DODEFAULT, " + QString::number(150) + ")").toStdString().c_str());
+    }
+    this->move_window(0.5, 0.5);
+}
+
 void FlashMainWindow::closeEvent(QCloseEvent *event)
 {
     int result = QMessageBox::information(this,QString::fromLocal8Bit("系统提示"),\
                                          QString::fromLocal8Bit("是否关闭登录器?"),\
                                                     QString::fromLocal8Bit("是"),\
-                                                    QString::fromLocal8Bit("否"),\
-                                                    0, 1);
+                                                    QString::fromLocal8Bit("否"));
     if(result)
     {
         event -> ignore();
@@ -154,4 +223,12 @@ void FlashMainWindow::closeEvent(QCloseEvent *event)
         }
         event -> accept();
     }
+}
+
+void FlashMainWindow::resizeEvent(QResizeEvent * event)
+{
+    qDebug() << event->size();
+    ui ->centralwidget->resize(this->width(), (this->height() - 22));
+    ui -> groupBox->resize(this->width(), (this->height() - 22));
+    ui -> seer_flash_game_window_axWidget->resize(this->width(), (this->height() - 22));
 }

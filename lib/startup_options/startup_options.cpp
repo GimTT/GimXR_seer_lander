@@ -55,7 +55,14 @@ void StartupOptions::switch_h5_mode(void)
     this->hide();
 }
 
-void raisePrivilege(void)
+/***************************************************************************************************
+*   Name   :   raise_privilege
+*  Input   :   NULL
+*  Output  :   NULL
+*  RetVal  :   NULL
+* Function :   提权函数
+***************************************************************************************************/
+void raise_privilege(void)
 {
     HANDLE hToken;
     TOKEN_PRIVILEGES tp;
@@ -63,7 +70,7 @@ void raisePrivilege(void)
     tp.Privileges[0].Attributes = SE_PRIVILEGE_ENABLED;
     if(OpenProcessToken(GetCurrentProcess(), TOKEN_ALL_ACCESS, &hToken))
     {
-        if(LookupPrivilegeValue(NULL, SE_DEBUG_NAME, &tp.Privileges[0].Luid))
+        if(LookupPrivilegeValue(nullptr, SE_DEBUG_NAME, &tp.Privileges[0].Luid))
         {
             AdjustTokenPrivileges(hToken, FALSE, &tp, NULL, NULL, 0);
         }

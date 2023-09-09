@@ -3,8 +3,8 @@
 
 int main(int argc, char *argv[])
 {
-    raisePrivilege();
-    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+    QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+    raise_privilege();
     QApplication app(argc, argv);
     StartupOptions startup_options;
     startup_options.show();

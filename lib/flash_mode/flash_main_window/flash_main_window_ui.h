@@ -31,24 +31,29 @@ public:
     QAxWidget *seer_flash_game_window_axWidget;
     QMenuBar *menuBar;
     QMenu *menu;
+    QMenu *setting;
     QMenu *option;
 
     void setupUi(QMainWindow *FlashLanderMainWindow)
     {
         if (FlashLanderMainWindow->objectName().isEmpty())
             FlashLanderMainWindow->setObjectName(QString::fromUtf8("FlashLanderMainWindow"));
-        FlashLanderMainWindow->resize(960, 580);
+        FlashLanderMainWindow->resize(960, 582);
+        FlashLanderMainWindow->setMinimumSize(QSize(480, 280));
         centralwidget = new QWidget(FlashLanderMainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
+        centralwidget->setMinimumSize(QSize(480, 280));
         central_widget_layout = new QVBoxLayout(centralwidget);
         central_widget_layout->setSpacing(0);
         central_widget_layout->setObjectName(QString::fromUtf8("central_widget_layout"));
         central_widget_layout->setContentsMargins(0, 0, 0, 0);
         groupBox = new QGroupBox(centralwidget);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
+        groupBox->setMinimumSize(QSize(480, 280));
         seer_flash_game_window_axWidget = new QAxWidget(groupBox);
         seer_flash_game_window_axWidget->setObjectName(QString::fromUtf8("seer_flash_game_window_axWidget"));
         seer_flash_game_window_axWidget->setProperty("geometry", QVariant(QRect(0, 0, 960, 560)));
+        seer_flash_game_window_axWidget->setProperty("minimumSize", QVariant(QSize(480, 280)));
 
         central_widget_layout->addWidget(groupBox);
 
@@ -59,11 +64,14 @@ public:
         menu = new QMenu(menuBar);
         menu->setObjectName(QString::fromUtf8("menu"));
         menu->setGeometry(QRect(269, 127, 120, 50));
+        setting = new QMenu(menuBar);
+        setting->setObjectName(QString::fromUtf8("setting"));
         option = new QMenu(menuBar);
         option->setObjectName(QString::fromUtf8("option"));
         FlashLanderMainWindow->setMenuBar(menuBar);
 
         menuBar->addAction(menu->menuAction());
+        menuBar->addAction(setting->menuAction());
         menuBar->addAction(option->menuAction());
 
         retranslateUi(FlashLanderMainWindow);
@@ -79,6 +87,7 @@ public:
         seer_flash_game_window_axWidget->setProperty("accessibleName", QVariant(QString()));
 #endif // QT_NO_ACCESSIBILITY
         menu->setTitle(QApplication::translate("FlashLanderMainWindow", "\350\217\234\345\215\225", nullptr));
+        setting->setTitle(QApplication::translate("FlashLanderMainWindow", "\350\256\276\347\275\256", nullptr));
         option->setTitle(QApplication::translate("FlashLanderMainWindow", "\351\200\211\351\241\271", nullptr));
     } // retranslateUi
 

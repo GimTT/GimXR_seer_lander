@@ -22,9 +22,9 @@
 #define __H5_MAIN_WINDOW_H__
 
 #include <QMainWindow>
-#include <QWebEngineView>
 #include <QStackedLayout>
 #include "h5_main_window_ui.h"
+#include "../../automatic_operation/dm_window/dm_window.h"
 
 class H5MainWindow : public QMainWindow, public Ui::H5LanderMainWindow
 {
@@ -35,6 +35,7 @@ public:
     ~H5MainWindow();
     void menu_add_items(void);
     void closeEvent(QCloseEvent *event);
+    void resizeEvent(QResizeEvent *event);
 
 public slots:
     void audio_mute(bool status);
@@ -42,8 +43,9 @@ public slots:
     void menu_trigger(QAction* act);
 
 private:
-    Ui::H5LanderMainWindow *ui;
-    QWebEngineView * seer_h5_view = nullptr;
+    Ui::H5LanderMainWindow * ui;
+    DMWindow * dm_window = nullptr;
+    HWND h5_window_handle = nullptr;
 };
 
 #endif // H5_MAIN_WINDOW_H

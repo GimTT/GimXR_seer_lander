@@ -10,9 +10,9 @@
 #define H5_MAIN_WINDOW_UI_H
 
 #include <QtCore/QVariant>
+#include <QtWebEngineWidgets/QWebEngineView>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QFrame>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
@@ -24,7 +24,7 @@ class Ui_H5LanderMainWindow
 {
 public:
     QWidget *centralwidget;
-    QFrame *seer_h5_game_window_frame;
+    QWebEngineView *seer_h5_view;
     QMenuBar *menuBar;
     QMenu *menu;
 
@@ -33,14 +33,16 @@ public:
         if (H5LanderMainWindow->objectName().isEmpty())
             H5LanderMainWindow->setObjectName(QString::fromUtf8("H5LanderMainWindow"));
         H5LanderMainWindow->resize(960, 580);
-        H5LanderMainWindow->setMinimumSize(QSize(960, 580));
+        H5LanderMainWindow->setMinimumSize(QSize(320, 240));
         centralwidget = new QWidget(H5LanderMainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        centralwidget->setMinimumSize(QSize(960, 560));
-        centralwidget->setMaximumSize(QSize(960, 560));
-        seer_h5_game_window_frame = new QFrame(centralwidget);
-        seer_h5_game_window_frame->setObjectName(QString::fromUtf8("seer_h5_game_window_frame"));
-        seer_h5_game_window_frame->setGeometry(QRect(0, 0, 960, 560));
+        centralwidget->setMinimumSize(QSize(320, 240));
+        centralwidget->setMaximumSize(QSize(16777215, 16777215));
+        seer_h5_view = new QWebEngineView(centralwidget);
+        seer_h5_view->setObjectName(QString::fromUtf8("seer_h5_view"));
+        seer_h5_view->setGeometry(QRect(0, 0, 960, 560));
+        seer_h5_view->setMinimumSize(QSize(320, 240));
+        seer_h5_view->setUrl(QUrl(QString::fromUtf8("about:blank")));
         H5LanderMainWindow->setCentralWidget(centralwidget);
         menuBar = new QMenuBar(H5LanderMainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));

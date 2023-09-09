@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.10.0, 2023-08-15T20:32:53. -->
+<!-- Written by QtCreator 4.10.0, 2023-09-09T13:33:45. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -324,7 +324,7 @@
     <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
     <value type="QString" key="RunConfiguration.WorkingDirectory"></value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">E:/GimXR_WorkSpace/GimXR_seer_lander/build_release</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">E:/GimXR_Workspace/GimXR_seer_lander/build_release</value>
    </valuemap>
    <value type="int" key="ProjectExplorer.Target.RunConfigurationCount">1</value>
   </valuemap>

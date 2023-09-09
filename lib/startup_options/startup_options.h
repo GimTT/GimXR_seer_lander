@@ -44,6 +44,6 @@ private:
     FlashMainWindow * flash_window = nullptr;       //flash登陆器
 };
 
-void raisePrivilege(void);                          //提权
+void raise_privilege(void);                          //提权
 
 #endif // STARTUP_OPTIONS_H
