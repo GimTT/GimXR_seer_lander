@@ -30,13 +30,19 @@
 #define DM_WINDOW_RESET_POS_X    0.5        //变速窗口初始化位置x（相对）
 #define DM_WINDOW_RESET_POS_Y    0.1        //变速窗口初始化位置y（相对）
 
+typedef enum
+{
+    flash_mode,
+    h5_mode,
+}dm_work_mode_t;
+
 class DMWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
     DM * dm;
-    DMWindow(QWidget * parent = nullptr, HWND win_handle = nullptr);
+    DMWindow(QWidget * parent = nullptr, HWND win_handle = nullptr, dm_work_mode_t dm_work_mode = flash_mode);
     ~DMWindow();
     void move_window(float relative_pos_x, float relative_pos_y);
 

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>960</width>
-    <height>580</height>
+    <height>582</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -68,7 +68,13 @@
      <string>菜单</string>
     </property>
    </widget>
+   <widget class="QMenu" name="setting">
+    <property name="title">
+     <string>设置</string>
+    </property>
+   </widget>
    <addaction name="menu"/>
+   <addaction name="setting"/>
   </widget>
  </widget>
  <customwidgets>

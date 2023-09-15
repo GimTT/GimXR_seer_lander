@@ -27,12 +27,13 @@ public:
     QWebEngineView *seer_h5_view;
     QMenuBar *menuBar;
     QMenu *menu;
+    QMenu *setting;
 
     void setupUi(QMainWindow *H5LanderMainWindow)
     {
         if (H5LanderMainWindow->objectName().isEmpty())
             H5LanderMainWindow->setObjectName(QString::fromUtf8("H5LanderMainWindow"));
-        H5LanderMainWindow->resize(960, 580);
+        H5LanderMainWindow->resize(960, 582);
         H5LanderMainWindow->setMinimumSize(QSize(320, 240));
         centralwidget = new QWidget(H5LanderMainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
@@ -49,9 +50,12 @@ public:
         menuBar->setGeometry(QRect(0, 0, 960, 22));
         menu = new QMenu(menuBar);
         menu->setObjectName(QString::fromUtf8("menu"));
+        setting = new QMenu(menuBar);
+        setting->setObjectName(QString::fromUtf8("setting"));
         H5LanderMainWindow->setMenuBar(menuBar);
 
         menuBar->addAction(menu->menuAction());
+        menuBar->addAction(setting->menuAction());
 
         retranslateUi(H5LanderMainWindow);
 
@@ -62,6 +66,7 @@ public:
     {
         H5LanderMainWindow->setWindowTitle(QApplication::translate("H5LanderMainWindow", "H5\346\250\241\345\274\217", nullptr));
         menu->setTitle(QApplication::translate("H5LanderMainWindow", "\350\217\234\345\215\225", nullptr));
+        setting->setTitle(QApplication::translate("H5LanderMainWindow", "\350\256\276\347\275\256", nullptr));
     } // retranslateUi
 
 };

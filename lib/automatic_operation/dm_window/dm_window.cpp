@@ -23,7 +23,7 @@
 #include "../../../lander_conf.h"
 #include "dm_window.h"
 
-DMWindow::DMWindow(QWidget *parent, HWND win_handle)
+DMWindow::DMWindow(QWidget *parent, HWND win_handle, dm_work_mode_t dm_work_mode)
     : QMainWindow(parent)
     , ui(new Ui::DmWindow)
 {
@@ -33,7 +33,7 @@ DMWindow::DMWindow(QWidget *parent, HWND win_handle)
     dm = new DM();
     dm -> bind_window((uint32_t)win_handle);
     /*大漠初始化     END*/
-    move_window(DM_WINDOW_RESET_POS_X, DM_WINDOW_RESET_POS_Y);
+    move_window(static_cast<float>(DM_WINDOW_RESET_POS_X), static_cast<float>(DM_WINDOW_RESET_POS_Y));
 }
 
 DMWindow::~DMWindow()
@@ -46,6 +46,6 @@ void DMWindow::move_window(float relative_pos_x, float relative_pos_y)
     QRect screen_rect = QApplication::desktop()->screenGeometry();
     int screen_width = screen_rect.width();
     int screen_height = screen_rect.height();
-    this -> move((screen_width * relative_pos_x) - (this -> width() / 2), (screen_height * relative_pos_y) - (this -> height() / 2));
+    this -> move(static_cast<int>((screen_width * relative_pos_x) - (this -> width() / 2)), static_cast<int>((screen_height * relative_pos_y) - (this -> height() / 2)));
 }
 

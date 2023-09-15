@@ -36,16 +36,19 @@ public:
     void menu_add_items(void);
     void closeEvent(QCloseEvent *event);
     void resizeEvent(QResizeEvent *event);
+    void keyPressEvent(QKeyEvent *event);
 
 public slots:
     void audio_mute(bool status);
     void game_refresh();
     void menu_trigger(QAction* act);
+    void setting_trigger(QAction* act);
 
 private:
     Ui::H5LanderMainWindow * ui;
     DMWindow * dm_window = nullptr;
     HWND h5_window_handle = nullptr;
+    bool b_full_screen_flag = false;
 };
 
 #endif // H5_MAIN_WINDOW_H

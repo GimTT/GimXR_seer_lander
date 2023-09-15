@@ -161,7 +161,7 @@ void FlashMainWindow::auto_menu_trigger(QAction* act)
 {
     if(act->text() == QString::fromLocal8Bit("自定义脚本"))
     {
-        dm_window = new DMWindow(nullptr, flash_window_handle);
+        dm_window = new DMWindow(nullptr, flash_window_handle, flash_mode);
         dm_window -> show();
         dm_window -> dm -> find_pic(0, 0, this -> width(), this -> height(), "test.bmp", "000000", 0.8, 0);
     }
@@ -227,8 +227,8 @@ void FlashMainWindow::closeEvent(QCloseEvent *event)
 
 void FlashMainWindow::resizeEvent(QResizeEvent * event)
 {
-    qDebug() << event->size();
-    ui ->centralwidget->resize(this->width(), (this->height() - 22));
-    ui -> groupBox->resize(this->width(), (this->height() - 22));
-    ui -> seer_flash_game_window_axWidget->resize(this->width(), (this->height() - 22));
+    qDebug() << "window size:" << event->size();
+    ui -> centralwidget -> resize(this -> width(), (this -> height() - 22));
+    ui -> groupBox -> resize(this -> width(), (this -> height() - 22));
+    ui -> seer_flash_game_window_axWidget -> resize(this -> width(), (this -> height() - 22));
 }
