@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'flash_main_window_ui.ui'
 **
-** Created by: Qt User Interface Compiler version 5.12.5
+** Created by: Qt User Interface Compiler version 5.15.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -52,7 +52,7 @@ public:
         groupBox->setMinimumSize(QSize(480, 280));
         seer_flash_game_window_axWidget = new QAxWidget(groupBox);
         seer_flash_game_window_axWidget->setObjectName(QString::fromUtf8("seer_flash_game_window_axWidget"));
-        seer_flash_game_window_axWidget->setProperty("geometry", QVariant(QRect(0, 0, 960, 560)));
+        seer_flash_game_window_axWidget->setProperty("geometry", QVariant(QRect(0, 0, 1200, 560)));
         seer_flash_game_window_axWidget->setProperty("minimumSize", QVariant(QSize(480, 280)));
 
         central_widget_layout->addWidget(groupBox);
@@ -63,7 +63,7 @@ public:
         menuBar->setGeometry(QRect(0, 0, 960, 22));
         menu = new QMenu(menuBar);
         menu->setObjectName(QString::fromUtf8("menu"));
-        menu->setGeometry(QRect(269, 127, 120, 50));
+        menu->setGeometry(QRect(269, 127, 114, 44));
         setting = new QMenu(menuBar);
         setting->setObjectName(QString::fromUtf8("setting"));
         option = new QMenu(menuBar);
@@ -81,14 +81,14 @@ public:
 
     void retranslateUi(QMainWindow *FlashLanderMainWindow)
     {
-        FlashLanderMainWindow->setWindowTitle(QApplication::translate("FlashLanderMainWindow", "FLASH\346\250\241\345\274\217", nullptr));
-        groupBox->setTitle(QApplication::translate("FlashLanderMainWindow", "GroupBox", nullptr));
-#ifndef QT_NO_ACCESSIBILITY
+        FlashLanderMainWindow->setWindowTitle(QCoreApplication::translate("FlashLanderMainWindow", "FLASH\346\250\241\345\274\217", nullptr));
+        groupBox->setTitle(QCoreApplication::translate("FlashLanderMainWindow", "GroupBox", nullptr));
+#if QT_CONFIG(accessibility)
         seer_flash_game_window_axWidget->setProperty("accessibleName", QVariant(QString()));
-#endif // QT_NO_ACCESSIBILITY
-        menu->setTitle(QApplication::translate("FlashLanderMainWindow", "\350\217\234\345\215\225", nullptr));
-        setting->setTitle(QApplication::translate("FlashLanderMainWindow", "\350\256\276\347\275\256", nullptr));
-        option->setTitle(QApplication::translate("FlashLanderMainWindow", "\351\200\211\351\241\271", nullptr));
+#endif // QT_CONFIG(accessibility)
+        menu->setTitle(QCoreApplication::translate("FlashLanderMainWindow", "\350\217\234\345\215\225", nullptr));
+        setting->setTitle(QCoreApplication::translate("FlashLanderMainWindow", "\350\256\276\347\275\256", nullptr));
+        option->setTitle(QCoreApplication::translate("FlashLanderMainWindow", "\351\200\211\351\241\271", nullptr));
     } // retranslateUi
 
 };

@@ -72,7 +72,7 @@ void raise_privilege(void)
     {
         if(LookupPrivilegeValue(nullptr, SE_DEBUG_NAME, &tp.Privileges[0].Luid))
         {
-            AdjustTokenPrivileges(hToken, FALSE, &tp, NULL, NULL, 0);
+            AdjustTokenPrivileges(hToken, FALSE, &tp, NULL, NULL, nullptr);
         }
     }
     if(hToken)

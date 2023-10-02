@@ -150,8 +150,8 @@ void H5MainWindow::resizeEvent(QResizeEvent *event)
     }
     else
     {
-        ui -> centralwidget -> resize(this->width(), (this->height() - 22));
-        ui -> seer_h5_view -> resize(this->width(), (this->height() - 22));
+        ui -> centralwidget -> resize(this->width(), (this->height() - 18));
+        ui -> seer_h5_view -> resize(this->width(), (this->height() - 18));
     }
 }
 
@@ -160,6 +160,7 @@ void H5MainWindow::keyPressEvent(QKeyEvent *event)
     switch(event->key())
     {
         case Qt::Key_F12:
+            qDebug() <<"[keyPressEvent][F12]";
             b_full_screen_flag = false;
             showNormal();
             ui -> menuBar-> setVisible(true);

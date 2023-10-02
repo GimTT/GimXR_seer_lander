@@ -64,26 +64,26 @@ void FlashSpeedCtrller::get_speed_from_slider(int value)
 
 void FlashSpeedCtrller::get_speed_from_spin_box(double value)
 {
-    ui -> speed_horizontal_slider->setValue((int)value);
+    ui -> speed_horizontal_slider->setValue(static_cast<int>(value));
     qDebug() << "[FLASH_SPEED_CTRLLER][spin box]value changed -> " << value;
 }
 
 void FlashSpeedCtrller::dll_set_speed_callback(float value)
 {
-    speed_set_range((float)value);
+    speed_set_range(static_cast<float>(value));
     qDebug() << "[FLASH_SPEED_CTRLLER][dll call]value changed -> " << value;
 }
 
 void FlashSpeedCtrller::reset_speed_value(void)
 {
-    ui -> speed_double_spin_box -> setValue((double)SPEED_VALUE_RESET);
-    ui -> speed_horizontal_slider -> setValue((int)SPEED_VALUE_RESET);
-    dll_set_speed_callback((float)SPEED_VALUE_RESET);
+    ui -> speed_double_spin_box -> setValue(static_cast<double>(SPEED_VALUE_RESET));
+    ui -> speed_horizontal_slider -> setValue(static_cast<int>(SPEED_VALUE_RESET));
+    dll_set_speed_callback(static_cast<float>(SPEED_VALUE_RESET));
 }
 
 void FlashSpeedCtrller::set_speed_value(void)
 {
-    ui -> speed_double_spin_box -> setValue((double)ui -> speed_double_spin_box -> value());
-    ui -> speed_horizontal_slider -> setValue((int)ui -> speed_horizontal_slider -> value());
-    dll_set_speed_callback((float)ui -> speed_double_spin_box -> value());
+    ui -> speed_double_spin_box -> setValue(static_cast<double>(ui -> speed_double_spin_box -> value()));
+    ui -> speed_horizontal_slider -> setValue(static_cast<int>(ui -> speed_horizontal_slider -> value()));
+    dll_set_speed_callback(static_cast<float>(ui -> speed_double_spin_box -> value()));
 }

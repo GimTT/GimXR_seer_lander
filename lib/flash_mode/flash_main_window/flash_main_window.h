@@ -52,6 +52,10 @@ private:
     FlashSpeedCtrller * speed_ctrller = nullptr;
     DMWindow * dm_window = nullptr;
     HWND flash_window_handle = nullptr;
+    double srceen_scale;                                //屏幕缩放比例
+    double get_screen_scale(void);                     //获取屏幕缩放比例
+    void scale_game_window(int zoom);               //重设游戏界面的大小
+    bool b_full_screen_flag = false;
 };
 
 #endif // FLASH_MAIN_WINDOW_H

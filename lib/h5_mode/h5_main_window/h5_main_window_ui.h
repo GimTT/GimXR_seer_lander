@@ -33,7 +33,7 @@ public:
     {
         if (H5LanderMainWindow->objectName().isEmpty())
             H5LanderMainWindow->setObjectName(QString::fromUtf8("H5LanderMainWindow"));
-        H5LanderMainWindow->resize(960, 582);
+        H5LanderMainWindow->resize(960, 578);
         H5LanderMainWindow->setMinimumSize(QSize(320, 240));
         centralwidget = new QWidget(H5LanderMainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
@@ -47,7 +47,7 @@ public:
         H5LanderMainWindow->setCentralWidget(centralwidget);
         menuBar = new QMenuBar(H5LanderMainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 960, 22));
+        menuBar->setGeometry(QRect(0, 0, 960, 18));
         menu = new QMenu(menuBar);
         menu->setObjectName(QString::fromUtf8("menu"));
         setting = new QMenu(menuBar);
